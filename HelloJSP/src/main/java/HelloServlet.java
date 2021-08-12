@@ -25,28 +25,27 @@ public class HelloServlet extends HttpServlet {
 		if (name == null) {
 			name = "Anonymous";
 		}
-		
-		
+
 		// 응답 출력을 위한 Writer
 		PrintWriter out = res.getWriter();
 		out.println("<h3>Hello Servlet</h3>");
 		out.println("<p>Welcome, " + name + "</p>");
-		
+
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// 페이지 응답 설정
 		res.setContentType("text/html; charset= UTF-8");
-		
+
 		// 파라미터 받아오기
 		String first_name = req.getParameter("first_name");
 		String last_name = req.getParameter("last_name");
-		
+
 		PrintWriter out = res.getWriter();
 		out.println("<h3>Form Data</h3>");
-		out.println("<p>성: " + last_name +"</p>");
-		out.println("<p>이름: " + first_name +"</p>");
+		out.println("<p>성: " + last_name + "</p>");
+		out.println("<p>이름: " + first_name + "</p>");
 
 	}
 

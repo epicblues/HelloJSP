@@ -44,6 +44,15 @@
   	</init-param>
   </servlet>
   
+  <servlet>
+  	<servlet-name>KmsPractice</servlet-name>
+  	<servlet-class>kms.practice.PracticeServlet</servlet-class>
+  	<init-param>
+  		<param-name>servlet-param</param-name>
+  		<param-value>서블릿 초기화 파라미터</param-value>
+  	</init-param>
+  </servlet>
+  
   
   <!-- 서블릿 매핑 정보 등록 -->
   <servlet-mapping>
@@ -53,5 +62,9 @@
   <servlet-mapping>
   	<servlet-name>LifeCycleCheck</servlet-name>
   	<url-pattern>/life</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>KmsPractice</servlet-name>
+  	<url-pattern>/practice</url-pattern>
   </servlet-mapping>
 </web-app>
