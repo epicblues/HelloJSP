@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,11 +25,13 @@ public class HelloServlet extends HttpServlet {
 		if (name == null) {
 			name = "Anonymous";
 		}
-
+		
+		
 		// 응답 출력을 위한 Writer
 		PrintWriter out = res.getWriter();
 		out.println("<h3>Hello Servlet</h3>");
 		out.println("<p>Welcome, " + name + "</p>");
+		
 	}
 
 	@Override
