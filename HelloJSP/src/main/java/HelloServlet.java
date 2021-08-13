@@ -14,10 +14,11 @@ public class HelloServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		// 응답의 페이지 타입 결정
-		res.setContentType("text/html; charset= UTF-8");
-		// MIME-TYPE ex) image/jpg, image/png, text/css -> 브라우저가 읽을 때 적용
+		// 요청 인코딩, 응답 페이지 설정 -> 필터로 설정
+		
+//		// 응답의 페이지 타입 결정
+//		res.setContentType("text/html; charset= UTF-8");
+//		// MIME-TYPE ex) image/jpg, image/png, text/css -> 브라우저가 읽을 때 적용
 
 		// 파라미터 확인
 		String name = req.getParameter("name");
@@ -35,8 +36,12 @@ public class HelloServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		// 페이지 응답 설정
-		res.setContentType("text/html; charset= UTF-8");
+		// 요청 인코딩, 응답 페이지 설정 -> 필터로 설정
+		
+//		// 요청 데이터 인코딩 설정
+//		req.setCharacterEncoding("UTF-8");
+//		// 페이지 응답 설정
+//		res.setContentType("text/html; charset= UTF-8");
 
 		// 파라미터 받아오기
 		String first_name = req.getParameter("first_name");

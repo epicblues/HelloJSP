@@ -53,6 +53,17 @@
   	</init-param>
   </servlet>
   
+  <!-- Filter 등록 -->
+  <filter>
+  	<filter-name>EncodingFilter</filter-name>
+  	<filter-class>EncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>EncodingFilter</filter-name>
+  	<!-- /* :모든 URL에 매핑 -->
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
   
   <!-- 서블릿 매핑 정보 등록 -->
   <servlet-mapping>
@@ -67,4 +78,17 @@
   	<servlet-name>KmsPractice</servlet-name>
   	<url-pattern>/practice</url-pattern>
   </servlet-mapping>
+  
+  <!-- 특정 예외 발생 시 예외 페이지 세팅 -->
+  <error-page>
+  	<exception-type>java.lang.Throwable</exception-type>
+  	<location>/views/error/error.jsp</location>
+  </error-page>
+  <!-- 특정 상태코드 발생시의 에러 페이지 -->
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/views/error/error404.jsp</location>
+  </error-page>
+  
+  
 </web-app>

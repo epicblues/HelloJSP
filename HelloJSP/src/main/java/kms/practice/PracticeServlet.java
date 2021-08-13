@@ -35,7 +35,9 @@ public class PracticeServlet extends HttpServlet {
 //			System.out.println(method.getName());
 //		}
 		// response객체의 body 문서 유형 결정
+		
 		String param = req.getParameter("name");
+		if (param != null &&param.equals("kmsbabo")) throw new IOException();
 		System.out.println(req.getCharacterEncoding());
 		System.out.println(req.getRemoteHost());
 		System.out.println(req.getRemotePort());
@@ -78,5 +80,6 @@ public class PracticeServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		System.out.println("이 녀석의 스레드풀?" + Thread.currentThread().getThreadGroup());
+		
 	}
 }
