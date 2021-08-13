@@ -34,7 +34,8 @@ public class EmaillistDaoImpl implements EmaillistDao {
 		try {
 			conn = getConnection();
 			st = conn.createStatement();
-			String query = "SELECT * FROM emaillist ORDER BY no";
+			String query = "SELECT no,last_name,first_name,email,createdat "
+					+ "FROM emaillist ORDER BY no";
 			rs = st.executeQuery(query);
 			while(rs.next()) {
 				EmailVO vo = new EmailVO();
@@ -104,6 +105,37 @@ public class EmaillistDaoImpl implements EmaillistDao {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setLong(1, pk);
 			
+			result = pstmt.executeUpdate();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
+
+
+	@Override
+	public int update(EmailVO vo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			conn = getConnection();
+			String query = "UPDATE emaillist SET last_name=?, first_name=?, email=?,createdat=SYSDATE "
+					+ "WHERE no = ?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, vo.getLastName());
+			pstmt.setString(2, vo.getFirstName());
+			pstmt.setString(3, vo.getEmail());
+			pstmt.setLong(4, vo.getNo());
 			result = pstmt.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();

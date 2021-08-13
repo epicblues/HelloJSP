@@ -8,4 +8,5 @@ public interface EmaillistDao {
 	public List<EmailVO> getList();
 	public int insert(EmailVO vo);
 	public int delete(Long pk);
+	public int update(EmailVO vo);
 }

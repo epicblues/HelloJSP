@@ -1,3 +1,6 @@
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="com.example.emaillist.dao.*"
@@ -6,6 +9,8 @@
 EmaillistDao dao = new EmaillistDaoImpl();
 // 이메일 리스트 받아오기
 List<EmailVO> list = dao.getList();
+SimpleDateFormat fmt = new SimpleDateFormat("YYYY-MM-dd : HH시 mm분 ss초");
+
 %>
 <!DOCTYPE html>
 <html>
@@ -41,7 +46,24 @@ List<EmailVO> list = dao.getList();
 		</tr>
 		<tr>
 			<th>등록일</th>
-			<td><%=vo.getCreatedAt()%></td>
+			<td><%=fmt.format(vo.getCreatedAt())%></td>
+		</tr>
+		<tr align="right"  >
+			
+			<td colspan="2">
+			<form action="<%=request.getContextPath()%>/emaillist/delete.jsp" method="POST">
+				<input name="no" value="<%=vo.getNo()%>" type="hidden"> 
+				<input type="submit" value="삭제" />
+			</form>
+			<form action="<%=request.getContextPath()%>/emaillist/update.jsp" method="POST">
+				
+				<input name="no" value="<%=vo.getNo()%>" type="hidden"> 
+				<input name="first_name" value="<%=vo.getFirstName()%>" type="hidden"> 
+				<input name="last_name" value="<%=vo.getLastName()%>" type="hidden"> 
+				<input name="email" value="<%=vo.getEmail()%>" type="hidden"> 
+				<input type="submit" value="수정" />
+			</form>
+			</td>
 		</tr>
 	</table>
 	<%
@@ -54,10 +76,5 @@ List<EmailVO> list = dao.getList();
 		<a href="<%=request.getContextPath()%>/emaillist/form.jsp">추가 이메일
 			등록</a>
 	</p>
-	<p>
-		<a href="<%=request.getContextPath()%>/emaillist/form.jsp">추가 이메일
-			등록</a>
-	</p>
-
 </body>
 </html>
