@@ -24,6 +24,10 @@ List<EmailVO> list = dao.getList();
 	<table border="1">
 		<!-- 행 -->
 		<tr>
+			<th>등록번호</th>
+			<td><%=vo.getNo()%></td>
+		</tr>
+		<tr>
 			<th>성</th>
 			<td><%=vo.getLastName()%></td>
 		</tr>
@@ -35,10 +39,25 @@ List<EmailVO> list = dao.getList();
 			<th>이메일</th>
 			<td><%=vo.getEmail()%></td>
 		</tr>
+		<tr>
+			<th>등록일</th>
+			<td><%=vo.getCreatedAt()%></td>
+		</tr>
 	</table>
 	<%
 	}
 	%>
 	<!-- 루프 끝 -->
+
+	<!-- 작성 폼으로 이동(동적 경로 설정, contextPath는 환경에 따라 변한다) -->
+	<p>
+		<a href="<%=request.getContextPath()%>/emaillist/form.jsp">추가 이메일
+			등록</a>
+	</p>
+	<p>
+		<a href="<%=request.getContextPath()%>/emaillist/form.jsp">추가 이메일
+			등록</a>
+	</p>
+
 </body>
 </html>
