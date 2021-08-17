@@ -33,12 +33,14 @@ public class UserVo {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	
+	
+	
 	@Override
 	public String toString() {
-		return "UserVo [name=" + name + ", password=" + password + ", email=" + email + ", gender=" + gender + "]";
+		return "UserVo [no=" + no + ", name=" + name + ", password=" + password + ", email=" + email + ", gender="
+				+ gender + ", createdAt=" + createdAt + "]";
 	}
-	
-	
 	public Date getCreatedAt() {
 		return createdAt;
 	}
