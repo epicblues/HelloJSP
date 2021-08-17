@@ -50,12 +50,13 @@ SimpleDateFormat fmt = new SimpleDateFormat("YYYY-MM-dd : HH시 mm분 ss초");
 		<tr align="right"  >
 			
 			<td colspan="2">
-			<form action="<%=request.getContextPath()%>/emaillist/delete.jsp" method="POST">
+			<form action="<%=request.getContextPath()%>/el" method="POST">
+				<input type="hidden" value="delete" name="action">
 				<input name="no" value="<%=vo.getNo()%>" type="hidden"> 
 				<input type="submit" value="삭제" />
 			</form>
-			<form action="<%=request.getContextPath()%>/emaillist/update.jsp" method="POST">
-				
+			<form action="<%=request.getContextPath()%>/el" method="POST">
+				<input type="hidden" value="update" name="action">
 				<input name="no" value="<%=vo.getNo()%>" type="hidden"> 
 				<input name="first_name" value="<%=vo.getFirstName()%>" type="hidden"> 
 				<input name="last_name" value="<%=vo.getLastName()%>" type="hidden"> 
