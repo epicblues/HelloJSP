@@ -7,7 +7,7 @@
 	import="com.example.emaillist.vo.*"%>
 <%
 // 요청 객체에서 list 속성 받아오기
-List<EmailVO> list = (List<EmailVO>)request.getAttribute("list");
+List<EmailVO> list = (List<EmailVO>)request.getAttribute("list"); // Object 상태로 value 값이 전송되었으므로 이를 맞게 Casting.
 SimpleDateFormat fmt = new SimpleDateFormat("YYYY-MM-dd : HH시 mm분 ss초");
 
 %>
@@ -72,7 +72,7 @@ SimpleDateFormat fmt = new SimpleDateFormat("YYYY-MM-dd : HH시 mm분 ss초");
 
 	<!-- 작성 폼으로 이동(동적 경로 설정, contextPath는 환경에 따라 변한다) -->
 	<p>
-		<a href="<%=request.getContextPath()%>/emaillist/form.jsp">추가 이메일
+		<a href="<%=request.getContextPath()%>/el?a=form">추가 이메일
 			등록</a>
 	</p>
 </body>

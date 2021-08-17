@@ -18,7 +18,28 @@ import com.example.emaillist.vo.EmailVO;
 @WebServlet("/el")
 public class EmaillistServlet extends HttpServlet{
 	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		String actionName = req.getParameter("a");
+		
+		if("add".equals(actionName)) {
+			//INSERT 처리
+		} else {
+			doGet(req,res);
+		}
+		
+	}
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		// 파라미터 확인
+		String formParam = req.getParameter("a");
+		if("form".equals(formParam)) {
+			RequestDispatcher rd = getServletContext()
+					.getRequestDispatcher("/WEB-INF/views/emaillist/form.jsp");
+			// 전달
+			rd.forward(req, res);
+			
+		} else {
+		
 		// 목록 가져오기
 		EmaillistDao dao = new EmaillistDaoImpl();
 		List<EmailVO> list = dao.getList();
@@ -31,5 +52,6 @@ public class EmaillistServlet extends HttpServlet{
 		RequestDispatcher rd = getServletContext()
 				.getRequestDispatcher("/WEB-INF/views/emaillist/index.jsp");
 		rd.forward(req, res);
+		}
 	}
 }

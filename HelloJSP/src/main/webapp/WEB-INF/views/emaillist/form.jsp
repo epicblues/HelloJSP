@@ -14,8 +14,10 @@
 	<!--  action :요청을 처리할 페이지 (서블릿 또는 JSP) 
 		method : 요청 방식
 	 -->
-	<form action="<%=request.getContextPath()%>/emaillist/insert.jsp"
+	<form action="<%=request.getContextPath()%>/el" 
 		method="POST">
+		<input type="hidden" value="add" name="action" />
+		<!-- hidden은 사용자 입력을 받지 않지만 전송해야 할 데이터 -->
 		<label for="last_name">성</label> <input type="text" name="last_name"
 			id="last_name" /><br /> <label for="first_name">이름</label> <input
 			type="text" name="first_name" id="first_name" /><br /> <label
@@ -26,7 +28,7 @@
 	</form>
 
 	<p>
-		<a href="<%=request.getContextPath()%>/emaillist">목록 보기</a>
+		<a href="<%=request.getContextPath()%>/el">목록 보기</a>
 	</p>
 </body>
 </html>
