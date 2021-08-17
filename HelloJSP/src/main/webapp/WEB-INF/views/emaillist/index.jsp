@@ -6,9 +6,8 @@
 	pageEncoding="UTF-8" import="com.example.emaillist.dao.*"
 	import="com.example.emaillist.vo.*"%>
 <%
-EmaillistDao dao = new EmaillistDaoImpl();
-// 이메일 리스트 받아오기
-List<EmailVO> list = dao.getList();
+// 요청 객체에서 list 속성 받아오기
+List<EmailVO> list = (List<EmailVO>)request.getAttribute("list");
 SimpleDateFormat fmt = new SimpleDateFormat("YYYY-MM-dd : HH시 mm분 ss초");
 
 %>
