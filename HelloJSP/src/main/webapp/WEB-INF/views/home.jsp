@@ -11,6 +11,8 @@
 	<h3>Hello HTML</h3>
 	<p>이것은 김민성이 만든 첫 번째 HTML입니다.</p> 
 	
+	<ul>
+		<li><a href="<%=request.getContextPath() %>/users?a=joinform">회원가입</a></li>
 	<h4>GET 전송</h4>
 	<!-- 
 	- URL로 데이터를 전송
