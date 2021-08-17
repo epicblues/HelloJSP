@@ -13,6 +13,7 @@
 	
 	<ul>
 		<li><a href="<%=request.getContextPath() %>/users?a=joinform">회원가입</a></li>
+		<li><a href="<%=request.getContextPath() %>/users?a=loginform">로그인</a></li>
 	<h4>GET 전송</h4>
 	<!-- 
 	- URL로 데이터를 전송
