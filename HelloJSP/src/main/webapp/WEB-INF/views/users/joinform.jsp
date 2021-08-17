@@ -20,7 +20,10 @@
 		<label for="gender">성별</label>
 		<input type="radio" name="gender" value="F" checked>여성
 		<input type="radio" name="gender" value="M">남성
-		
+		<!-- radio -> 같은 name 값 1개만 체크할 수 있다. 그 한개만 전송 
+		hidden, password, text 이외에는 다 예외적인 attribute -> 소속이 없을 경우
+		text라고 간주하게 된다.
+		-->
 		<input type="submit" value="가입" />
 	</form>
 </body>
