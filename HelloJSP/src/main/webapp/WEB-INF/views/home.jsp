@@ -1,15 +1,10 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Hello HTML</title>
-</head>
-<body>
-	<h3>Hello HTML</h3>
-	<p>이것은 김민성이 만든 첫 번째 HTML입니다.</p> 
+<!-- 동적 page include -->
+<jsp:include page="/WEB-INF/views/includes/header.jsp">
+	<jsp:param value="메인 페이지" name="message"/>
+</jsp:include>
 	
 	<ul>
 		<li><a href="<%=request.getContextPath() %>/users?a=joinform">회원가입</a></li>
@@ -43,5 +38,6 @@
 	 
 	 <h4>EmailList (Model 2:MVC)</h4>
 	 <p><a href = "/web/el">이메일 리스트 (Model 2)</a></p>
-</body>
-</html>
+	 
+<!-- 정적 페이지 include -->
+<%@ include file ="/WEB-INF/views/includes/footer.jsp" %>

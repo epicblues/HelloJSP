@@ -15,7 +15,8 @@ import com.example.emaillist.vo.UserVo;
 
 @WebServlet("/users")
 public class UserServlet extends HttpServlet {
-
+	
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String actionName = req.getParameter("a");
@@ -30,6 +31,7 @@ public class UserServlet extends HttpServlet {
 			vo.setPassword(password);
 			vo.setEmail(email);
 			vo.setGender(gender);
+			
 			UserDao dao = new UserDaoImpl();
 			int result = dao.insert(vo);
 			if (result == 1) {
