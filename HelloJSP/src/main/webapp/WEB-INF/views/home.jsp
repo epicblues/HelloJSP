@@ -9,6 +9,8 @@
 	<ul>
 		<li><a href="<%=request.getContextPath() %>/users?a=joinform">회원가입</a></li>
 		<li><a href="<%=request.getContextPath() %>/users?a=loginform">로그인</a></li>
+	
+	</ul>
 	<h4>GET 전송</h4>
 	<!-- 
 	- URL로 데이터를 전송
@@ -38,6 +40,9 @@
 	 
 	 <h4>EmailList (Model 2:MVC)</h4>
 	 <p><a href = "/web/el">이메일 리스트 (Model 2)</a></p>
+	 
+	 <h4>Cookie Test</h4>
+	 <p><a href="<%=request.getContextPath() %>/cookies">쿠키 테스트</a></p>
 	 
 <!-- 정적 페이지 include -->
 <%@ include file ="/WEB-INF/views/includes/footer.jsp" %>
